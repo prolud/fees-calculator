@@ -36,19 +36,20 @@ export function CalculatorForm({
       }}
       className="space-y-6"
     >
-      <CurrencyField
-        id="initialValue"
-        label="Initial Value"
-        value={form.initialValue}
-        onChange={(v) => update('initialValue', v)}
-      />
-
-      <CurrencyField
-        id="monthlyContribution"
-        label="Monthly Contribution"
-        value={form.monthlyContribution}
-        onChange={(v) => update('monthlyContribution', v)}
-      />
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <CurrencyField
+          id="initialValue"
+          label="Initial Value"
+          value={form.initialValue}
+          onChange={(v) => update('initialValue', v)}
+        />
+        <CurrencyField
+          id="monthlyContribution"
+          label="Monthly Contribution"
+          value={form.monthlyContribution}
+          onChange={(v) => update('monthlyContribution', v)}
+        />
+      </div>
 
       <div className="space-y-2">
         <Label htmlFor="interestRate">Interest Rate</Label>
