@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { CalculatorForm } from '@/components/calculator-form';
 import { CalculatorResults } from '@/components/calculator-results';
@@ -12,21 +12,37 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { calculateCompoundInterest, parseFormState } from '@/lib/calculator';
-import { INITIAL_FORM_STATE, type CalculatorResult, type FormState } from '@/lib/types';
+import {
+  EMPTY_RESULT,
+  INITIAL_FORM_STATE,
+  type CalculatorResult,
+  type FormState,
+} from '@/lib/types';
 
 export default function Home() {
   const [form, setForm] = useState<FormState>(INITIAL_FORM_STATE);
-  const [result, setResult] = useState<CalculatorResult | null>(null);
+  const [result, setResult] = useState<CalculatorResult>(EMPTY_RESULT);
+  const [showResults, setShowResults] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleSubmit = () => {
     const input = parseFormState(form);
     if (input.period <= 0) return;
+
     setResult(calculateCompoundInterest(input));
+    setShowResults(true);
+
+    // Wait for the expand transition to progress before scrolling so the
+    // target element has its final height when scrollIntoView is called.
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 300);
   };
 
   const handleClear = () => {
     setForm(INITIAL_FORM_STATE);
-    setResult(null);
+    setShowResults(false);
+    setResult(EMPTY_RESULT);
   };
 
   return (
@@ -51,7 +67,7 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        {result && <CalculatorResults result={result} />}
+        <CalculatorResults ref={resultsRef} result={result} visible={showResults} />
       </div>
     </main>
   );

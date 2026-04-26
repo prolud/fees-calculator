@@ -55,3 +55,6 @@ export const CURRENCY_FORMAT = {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 } as const;
+
+// Default NumberFlow timing is ~750ms; bumped by +500ms for a slower reveal.
+export const NUMBER_FLOW_TIMING = { duration: 1250 } as const;

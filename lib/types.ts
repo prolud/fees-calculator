@@ -16,6 +16,12 @@ export interface CalculatorResult {
   totalInterest: number;
 }
 
+export const EMPTY_RESULT: CalculatorResult = {
+  finalValue: 0,
+  totalInvested: 0,
+  totalInterest: 0,
+};
+
 export interface FormState {
   initialValue: string;
   monthlyContribution: string;
