@@ -51,64 +51,66 @@ export function CalculatorForm({
         />
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="interestRate">Interest Rate</Label>
-        <div className="flex gap-3">
-          <div className="relative flex-1">
-            <Input
-              id="interestRate"
-              type="number"
-              value={form.interestRate}
-              onChange={(e) => update('interestRate', e.target.value)}
-              placeholder="0.00"
-              step="0.01"
-              min="0"
-              className="pr-8"
-            />
-            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-              %
-            </span>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="interestRate">Interest Rate</Label>
+          <div className="flex gap-2">
+            <div className="relative flex-1">
+              <Input
+                id="interestRate"
+                type="number"
+                value={form.interestRate}
+                onChange={(e) => update('interestRate', e.target.value)}
+                placeholder="0.00"
+                step="0.01"
+                min="0"
+                className="pr-8"
+              />
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                %
+              </span>
+            </div>
+            <Select
+              value={form.ratePeriod}
+              onValueChange={(v) => update('ratePeriod', v as RatePeriod)}
+            >
+              <SelectTrigger className="w-[120px] shrink-0">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="yearly">Per Year</SelectItem>
+                <SelectItem value="monthly">Per Month</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-          <Select
-            value={form.ratePeriod}
-            onValueChange={(v) => update('ratePeriod', v as RatePeriod)}
-          >
-            <SelectTrigger className="w-[150px]">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="monthly">Per Month</SelectItem>
-              <SelectItem value="yearly">Per Year</SelectItem>
-            </SelectContent>
-          </Select>
         </div>
-      </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="period">Period</Label>
-        <div className="flex gap-3">
-          <Input
-            id="period"
-            type="number"
-            value={form.period}
-            onChange={(e) => update('period', e.target.value)}
-            placeholder="0"
-            step="1"
-            min="0"
-            className="flex-1"
-          />
-          <Select
-            value={form.timeUnit}
-            onValueChange={(v) => update('timeUnit', v as TimeUnit)}
-          >
-            <SelectTrigger className="w-[150px]">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="months">Months</SelectItem>
-              <SelectItem value="years">Years</SelectItem>
-            </SelectContent>
-          </Select>
+        <div className="space-y-2">
+          <Label htmlFor="period">Period</Label>
+          <div className="flex gap-2">
+            <Input
+              id="period"
+              type="number"
+              value={form.period}
+              onChange={(e) => update('period', e.target.value)}
+              placeholder="0"
+              step="1"
+              min="0"
+              className="flex-1"
+            />
+            <Select
+              value={form.timeUnit}
+              onValueChange={(v) => update('timeUnit', v as TimeUnit)}
+            >
+              <SelectTrigger className="w-[120px] shrink-0">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="years">Years</SelectItem>
+                <SelectItem value="months">Months</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </div>
 

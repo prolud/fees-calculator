@@ -36,7 +36,7 @@ export default function Home() {
     // target element has its final height when scrollIntoView is called.
     setTimeout(() => {
       resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }, 300);
+    }, 100);
   };
 
   const handleClear = () => {

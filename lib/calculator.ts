@@ -57,4 +57,4 @@ export const CURRENCY_FORMAT = {
 } as const;
 
 // Default NumberFlow timing is ~750ms; bumped by +500ms for a slower reveal.
-export const NUMBER_FLOW_TIMING = { duration: 1250 } as const;
+export const NUMBER_FLOW_TIMING = { duration: 750 } as const;
