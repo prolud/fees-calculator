@@ -113,9 +113,6 @@ export function CalculatorForm({
       </div>
 
       <div className="flex gap-3 pt-2">
-        <Button type="submit" size="lg" className="flex-1">
-          Calculate
-        </Button>
         <Button
           type="button"
           variant="outline"
@@ -124,6 +121,9 @@ export function CalculatorForm({
           className="flex-1"
         >
           Clear
+        </Button>
+        <Button type="submit" size="lg" className="flex-1">
+          Calculate
         </Button>
       </div>
     </form>
