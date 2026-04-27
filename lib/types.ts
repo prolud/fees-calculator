@@ -32,12 +32,12 @@ export interface FormState {
 }
 
 const ratePeriodLocalStorage = () => {
-  if (window === undefined) return 'yearly';
-  return localStorage.getItem('pref_timeUnit') as RatePeriod ?? 'yearly'
+  if (typeof window === 'undefined') return 'yearly';
+  return localStorage.getItem('pref_ratePeriod') as RatePeriod ?? 'yearly';
 }
 const timeUnitLocalStorage = () => {
-  if (window === undefined) return 'years';
-  return localStorage.getItem('pref_timeUnit') as TimeUnit ?? 'years'
+  if (typeof window === 'undefined') return 'years';
+  return localStorage.getItem('pref_timeUnit') as TimeUnit ?? 'years';
 }
 
 export const INITIAL_FORM_STATE: FormState = {
