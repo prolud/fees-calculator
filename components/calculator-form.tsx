@@ -59,6 +59,7 @@ export function CalculatorForm({
               <Input
                 id="interestRate"
                 type="number"
+                inputMode="decimal"
                 value={form.interestRate}
                 onChange={(e) => update('interestRate', e.target.value)}
                 placeholder="0.00"
@@ -91,6 +92,7 @@ export function CalculatorForm({
             <Input
               id="period"
               type="number"
+              inputMode="numeric"
               value={form.period}
               onChange={(e) => update('period', e.target.value)}
               placeholder="0"
@@ -150,6 +152,7 @@ function CurrencyField({ id, label, value, onChange }: CurrencyFieldProps) {
         <Input
           id={id}
           type="number"
+          inputMode="decimal"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder="0.00"
