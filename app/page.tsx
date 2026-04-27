@@ -42,7 +42,7 @@ export default function Home() {
     // Wait for the expand transition to progress before scrolling so the
     // target element has its final height when scrollIntoView is called.
     setTimeout(() => {
-      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
   };
 
