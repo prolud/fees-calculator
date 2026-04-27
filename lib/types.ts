@@ -31,11 +31,20 @@ export interface FormState {
   timeUnit: TimeUnit;
 }
 
+const ratePeriodLocalStorage = () => {
+  if (window === undefined) return 'yearly';
+  return localStorage.getItem('pref_timeUnit') as RatePeriod ?? 'yearly'
+}
+const timeUnitLocalStorage = () => {
+  if (window === undefined) return 'years';
+  return localStorage.getItem('pref_timeUnit') as TimeUnit ?? 'years'
+}
+
 export const INITIAL_FORM_STATE: FormState = {
   initialValue: '',
   monthlyContribution: '',
   interestRate: '',
   period: '',
-  ratePeriod: 'monthly',
-  timeUnit: 'months',
+  ratePeriod: ratePeriodLocalStorage(),
+  timeUnit: timeUnitLocalStorage(),
 };

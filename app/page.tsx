@@ -25,6 +25,13 @@ export default function Home() {
   const [showResults, setShowResults] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
 
+  const handleFormChange = (next: FormState) => {
+    localStorage.setItem("pref_ratePeriod", next.ratePeriod);
+    localStorage.setItem("pref_timeUnit", next.timeUnit);
+
+    setForm(next);
+  };
+
   const handleSubmit = () => {
     const input = parseFormState(form);
     if (input.period <= 0) return;
@@ -60,7 +67,7 @@ export default function Home() {
           <CardContent>
             <CalculatorForm
               form={form}
-              onChange={setForm}
+              onChange={handleFormChange}
               onSubmit={handleSubmit}
               onClear={handleClear}
             />
