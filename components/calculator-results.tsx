@@ -24,10 +24,10 @@ export const CalculatorResults = forwardRef<HTMLDivElement, CalculatorResultsPro
         ref={ref}
         aria-hidden={!visible}
         className={cn(
-          'transition-all duration-500 ease-out',
+          'transition-all duration-500 ease-out overflow-hidden',
           visible
-            ? 'pointer-events-auto max-h-[2000px] opacity-100'
-            : 'pointer-events-none max-h-0 overflow-hidden opacity-0'
+            ? 'pointer-events-auto md:max-h-[400px] max-h-[2000px] opacity-100'
+            : 'pointer-events-none max-h-0 opacity-0'
         )}
       >
         <Card>
@@ -84,7 +84,7 @@ interface ResultCardProps {
 function ResultCard({ label, value, tone }: ResultCardProps) {
   const styles = TONE_STYLES[tone];
   return (
-    <div className={cn('rounded-lg border border-border p-5 saturate-100 brightness-100 hover:brightness-125 hover:saturate-150 transition-all duration-150', styles.bg)}>
+    <div className={cn('overflow-hidden rounded-lg border border-border p-5 saturate-100 brightness-100 hover:brightness-125 hover:saturate-150 transition-all duration-150', styles.bg)}>
       <p className={cn('mb-2 text-sm font-medium', styles.text)}>{label}</p>
       <div className={cn('text-3xl font-bold', styles.text)}>
         <NumberFlow

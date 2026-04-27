@@ -50,10 +50,14 @@ export default function Home() {
     setForm(INITIAL_FORM_STATE);
     setShowResults(false);
     setResult(EMPTY_RESULT);
+
+    setTimeout(() => {
+      window.scroll({ behavior: 'smooth', top: 0 });
+    }, 100);
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center p-4 py-8">
+    <main className="flex min-h-screen sm:items-center justify-center p-4 py-8">
       <div className="w-full max-w-2xl space-y-8">
         <Card>
           <CardHeader>
