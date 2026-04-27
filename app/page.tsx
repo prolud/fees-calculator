@@ -25,6 +25,13 @@ export default function Home() {
   const [showResults, setShowResults] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
 
+  const handleFormChange = (next: FormState) => {
+    localStorage.setItem("pref_ratePeriod", next.ratePeriod);
+    localStorage.setItem("pref_timeUnit", next.timeUnit);
+
+    setForm(next);
+  };
+
   const handleSubmit = () => {
     const input = parseFormState(form);
     if (input.period <= 0) return;
@@ -35,7 +42,7 @@ export default function Home() {
     // Wait for the expand transition to progress before scrolling so the
     // target element has its final height when scrollIntoView is called.
     setTimeout(() => {
-      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
   };
 
@@ -43,10 +50,14 @@ export default function Home() {
     setForm(INITIAL_FORM_STATE);
     setShowResults(false);
     setResult(EMPTY_RESULT);
+
+    setTimeout(() => {
+      window.scroll({ behavior: 'smooth', top: 0 });
+    }, 100);
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center p-4 py-8">
+    <main className="flex min-h-screen sm:items-center justify-center p-4 py-8">
       <div className="w-full max-w-2xl space-y-8">
         <Card>
           <CardHeader>
@@ -60,7 +71,7 @@ export default function Home() {
           <CardContent>
             <CalculatorForm
               form={form}
-              onChange={setForm}
+              onChange={handleFormChange}
               onSubmit={handleSubmit}
               onClear={handleClear}
             />
