@@ -1,4 +1,4 @@
-# Compound Interest Calculator
+# Calculadora de juros compostos
 
 A Next.js application for calculating compound interest with monthly contributions. Built with React, TypeScript, Tailwind CSS, and NumberFlow for animated results.
 
@@ -37,9 +37,9 @@ npm run dev
 
 ## Usage
 
-1. Enter your **Initial Value** (current amount)
-2. Enter your **Monthly Contribution** (amount you'll add each month)
-3. Enter the **Interest Rate** and select if it's monthly or yearly
+1. Enter your **Valor inicial** (current amount)
+2. Enter your **Aportes mensais** (amount you'll add each month)
+3. Enter the **Taxa de juros** and select if it's monthly or yearly
 4. Enter the **Period** and select if it's in months or years
 5. Click **Calculate** to see the results:
    - Final Value: Total amount after interest

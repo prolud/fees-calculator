@@ -32,18 +32,18 @@ export const CalculatorResults = forwardRef<HTMLDivElement, CalculatorResultsPro
       >
         <Card>
           <CardHeader>
-            <CardTitle>Results</CardTitle>
+            <CardTitle>Resultados</CardTitle>
           </CardHeader>
           <CardContent className="space-y-8">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <ResultCard label="Final Value" value={finalValue} tone="success" />
-              <ResultCard label="Total Invested" value={totalInvested} tone="info" />
-              <ResultCard label="Total Interest" value={totalInterest} tone="warning" />
+              <ResultCard label="Valor Final" value={finalValue} tone="success" />
+              <ResultCard label="Total Investido" value={totalInvested} tone="info" />
+              <ResultCard label="Juros Totais" value={totalInterest} tone="warning" />
             </div>
 
             <div className="space-y-3">
               <div className="text-sm font-medium text-muted-foreground">
-                Investment Breakdown
+                Análise do Investimento
               </div>
               <div className="flex h-3 w-full overflow-hidden rounded-full bg-secondary">
                 <div
@@ -56,8 +56,8 @@ export const CalculatorResults = forwardRef<HTMLDivElement, CalculatorResultsPro
                 />
               </div>
               <div className="flex justify-between text-xs text-muted-foreground">
-                <span>Invested: {investedPct.toFixed(1)}%</span>
-                <span>Interest: {interestPct.toFixed(1)}%</span>
+                <span>Investido: {investedPct.toFixed(1)}%</span>
+                <span>Juros Compostos: {interestPct.toFixed(1)}%</span>
               </div>
             </div>
           </CardContent>

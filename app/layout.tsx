@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Compound Interest Calculator',
-  description: 'Calculate compound interest with monthly contributions',
+  title: 'Calculadora de juros compostos',
+  description: 'Calcule o crescimento do seu investimento com juros compostos.',
 };
 
 export default function RootLayout({

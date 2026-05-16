@@ -39,13 +39,13 @@ export function CalculatorForm({
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <CurrencyField
           id="initialValue"
-          label="Initial Value"
+          label="Valor inicial"
           value={form.initialValue}
           onChange={(v) => update('initialValue', v)}
         />
         <CurrencyField
           id="monthlyContribution"
-          label="Monthly Contribution"
+          label="Aportes mensais"
           value={form.monthlyContribution}
           onChange={(v) => update('monthlyContribution', v)}
         />
@@ -53,7 +53,7 @@ export function CalculatorForm({
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="interestRate">Interest Rate</Label>
+          <Label htmlFor="interestRate">Taxa de juros</Label>
           <div className="flex gap-2">
             <div className="relative flex-1">
               <Input
@@ -79,15 +79,15 @@ export function CalculatorForm({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="yearly">Per Year</SelectItem>
-                <SelectItem value="monthly">Per Month</SelectItem>
+                <SelectItem value="yearly">Por Ano</SelectItem>
+                <SelectItem value="monthly">Por Mês</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="period">Period</Label>
+          <Label htmlFor="period">Período</Label>
           <div className="flex gap-2">
             <Input
               id="period"
@@ -108,8 +108,8 @@ export function CalculatorForm({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="years">Years</SelectItem>
-                <SelectItem value="months">Months</SelectItem>
+                <SelectItem value="years">Anos</SelectItem>
+                <SelectItem value="months">Meses</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -124,10 +124,10 @@ export function CalculatorForm({
           onClick={onClear}
           className="flex-1"
         >
-          Clear
+          Limpar
         </Button>
         <Button type="submit" size="lg" className="flex-1">
-          Calculate
+          Calcular
         </Button>
       </div>
     </form>
